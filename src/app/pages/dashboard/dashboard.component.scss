@@ -1,0 +1,74 @@
+.dashboard-container {
+    padding: 20px;
+    background-color: #eee;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .charts-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .chart-card {
+    height: 400px;
+  }
+
+  .bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .tasks-header {
+    background: #9c27b0;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .task-filters {
+    display: flex;
+    gap: 10px;
+  }
+
+  .task-filters button {
+    color: white;
+  }
+
+  .task-actions {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  mat-selection-list {
+    padding: 0;
+  }
+
+  mat-list-option {
+    position: relative;
+    border-bottom: 1px solid #eee;
+  }
+
+  .update-time {
+    color: #999;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .employees-card table {
+    width: 100%;
+  }

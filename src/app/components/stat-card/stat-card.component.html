@@ -1,0 +1,13 @@
+<mat-card class="stat-card">
+    <mat-card-content>
+      <mat-icon [ngClass]="{'warning': warning}">{{icon}}</mat-icon>
+      <div class="stat-content">
+        <div class="title">{{title}}</div>
+        <div class="value">{{value}}</div>
+      </div>
+      <div class="subtitle">
+        <mat-icon class="small-icon">access_time</mat-icon>
+        {{subtitle}}
+      </div>
+    </mat-card-content>
+  </mat-card>

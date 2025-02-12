@@ -1,0 +1,97 @@
+<div class="dashboard-container">
+  <app-storage-card
+  [used]="49"
+  [total]="50"
+  unit="GB">
+</app-storage-card>
+    <div class="stats-row">
+      <app-stat-card
+        icon="storage"
+        title="Used Space"
+        value="49/50 GB"
+        subtitle="Get More Space..."
+        [warning]="true"
+      ></app-stat-card>
+      
+      <app-stat-card
+        icon="store"
+        title="Revenue"
+        value="$34,245"
+        subtitle="Last 24 Hours"
+      ></app-stat-card>
+      
+      <app-stat-card
+        icon="info"
+        title="Fixed Issues"
+        value="75"
+        subtitle="Tracked from Github"
+      ></app-stat-card>
+      
+      <app-stat-card
+        icon="twitter"
+        title="Followers"
+        value="+245"
+        subtitle="Just Updated"
+      ></app-stat-card>
+    </div>
+  
+    <div class="charts-row">
+      <app-chart-card
+        title="Daily Sales"
+        subtitle="55% increase in today sales"
+        [chartData]="dailySalesData"
+        chartType="line"
+        class="chart-card"
+      ></app-chart-card>
+  
+      <app-chart-card
+        title="Email Subscriptions"
+        subtitle="Last Campaign Performance"
+        [chartData]="emailSubscriptionData"
+        chartType="bar"
+        class="chart-card"
+      ></app-chart-card>
+  
+      <app-chart-card
+        title="Completed Tasks"
+        subtitle="Last Campaign Performance"
+        [chartData]="completedTasksData"
+        chartType="line"
+        class="chart-card"
+      ></app-chart-card>
+    </div>
+  
+    <div class="bottom-row">
+      <app-task-list></app-task-list>
+      <app-employee-table></app-employee-table>
+    </div>
+  </div>
+  
+  
+   <div class="dashboard-container">
+    <mat-card class="inventory-card">
+      <mat-card-header>
+        <mat-card-title>Inventory Count</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="inventory-count">{{ inventoryCount }}</p>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="inventory-card">
+      <mat-card-header>
+        <mat-card-title>Inventory Count</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="inventory-count">{{ inventoryCount }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+  
+  
+  <app-storage-card
+    [used]="49"
+    [total]="50"
+    unit="GB">
+  </app-storage-card>

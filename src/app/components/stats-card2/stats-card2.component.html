@@ -1,0 +1,13 @@
+<mat-card class="stats-card">
+    <div class="icon-container" [style.background-color]="iconBg">
+      <mat-icon>{{icon}}</mat-icon>
+    </div>
+    <mat-card-content class="content">
+      <div class="title">{{title}}</div>
+      <div class="value">{{value}}</div>
+      <div class="subtitle" [class.warning]="warning">
+        <mat-icon *ngIf="warning" class="warning-icon">warning</mat-icon>
+        <span>{{subtitle}}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
