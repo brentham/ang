@@ -1,0 +1,52 @@
+.dashboard-container {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    height: calc(100vh - 40px);
+  }
+
+  .endpoints-card, .data-card {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .endpoint-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .endpoint-path {
+    margin: 0 12px;
+    flex: 1;
+  }
+
+  .method-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 12px;
+  }
+
+  .table-container {
+    margin-top: 20px;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .get-method { color: #4CAF50; }
+  .post-method { color: #2196F3; }
+  .put-method { color: #FF9800; }
+  .delete-method { color: #f44336; }
+
+  mat-card-content {
+    overflow: auto;
+  }
