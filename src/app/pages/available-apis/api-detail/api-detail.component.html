@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="header">
+      <button mat-icon-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h2>API Endpoint Details</h2>
+    </div>
+  
+    <ng-container *ngIf="loading">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </ng-container>
+  
+    <ng-container *ngIf="error">
+      <mat-card class="error-card">
+        <mat-card-content>
+          <mat-icon color="warn">error</mat-icon>
+          <p>{{ error }}</p>
+          <button mat-button color="primary" (click)="goBack()">
+            Return to API List
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  
+    <mat-card class="detail-card" *ngIf="endpoint && !loading && !error">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-chip [class]="getMethodClass(endpoint.method)">
+            {{ endpoint.method }}
+          </mat-chip>
+          {{ endpoint.path }}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="endpoint.name">
+          {{ endpoint.name }}
+        </mat-card-subtitle>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <div class="section">
+          <h3>Description</h3>
+          <p>{{ endpoint.description || 'No description available' }}</p>
+        </div>
+  
+        <div class="section" *ngIf="parameters.length">
+          <h3>Parameters</h3>
+          <table mat-table [dataSource]="parameters" class="mat-elevation-z2">
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let param">{{param.name}}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="type">
+              <th mat-header-cell *matHeaderCellDef>Type</th>
+              <td mat-cell *matCellDef="let param">{{param.type}}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="required">
+              <th mat-header-cell *matHeaderCellDef>Required</th>
+              <td mat-cell *matCellDef="let param">
+                <mat-icon color="{{param.required ? 'warn' : 'primary'}}">
+                  {{param.required ? 'check_circle' : 'cancel'}}
+                </mat-icon>
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef>Description</th>
+              <td mat-cell *matCellDef="let param">{{param.description}}</td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="['name', 'type', 'required', 'description']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['name', 'type', 'required', 'description'];"></tr>
+          </table>
+        </div>
+  
+        <div class="section" *ngIf="endpoint.responses?.length">
+          <h3>Responses</h3>
+          <mat-accordion>
+            <mat-expansion-panel *ngFor="let response of endpoint.responses">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span [class]="'status-' + response.status">
+                    {{ response.status }}
+                  </span>
+                </mat-panel-title>
+                <mat-panel-description>
+                  {{ response.description }}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              
+              <pre *ngIf="response.schema">{{ formatJson(response.schema) }}</pre>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>

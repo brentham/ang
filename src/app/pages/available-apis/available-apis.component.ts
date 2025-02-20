@@ -15,29 +15,29 @@ interface LoadingState<T> {
   templateUrl: './available-apis.component.html',
   styleUrl: './available-apis.component.scss'
 })
-export class AvailableApisComponent implements OnInit {
+export class AvailableApisComponent  {
   displayedColumns: string[] = ['username', 'email'];
   state$!: Observable<LoadingState<any[]>>;
 
   constructor(private apiService: ApiService) {}
 
-  ngOnInit() {
-    this.state$ = this.apiService.getOperatingSystems().pipe(
-      map(data => ({
-        data,
-        loading: false,
-        error: null
-      })),
-      catchError(error => of({
-        data: null,
-        loading: false,
-        error: 'Failed to load operating systems. Please try again later.'
-      })),
-      startWith({
-        data: null,
-        loading: true,
-        error: null
-      })
-    );
-  }
+  // ngOnInit() {
+  //   this.state$ = this.apiService.getOperatingSystems().pipe(
+  //     map(data => ({
+  //       data,
+  //       loading: false,
+  //       error: null
+  //     })),
+  //     catchError(error => of({
+  //       data: null,
+  //       loading: false,
+  //       error: 'Failed to load operating systems. Please try again later.'
+  //     })),
+  //     startWith({
+  //       data: null,
+  //       loading: true,
+  //       error: null
+  //     })
+  //   );
+  // }
 }

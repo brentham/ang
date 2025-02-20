@@ -1,0 +1,36 @@
+.container {
+    padding: 20px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .detail-card {
+    margin-bottom: 20px;
+  }
+
+  .section {
+    margin-top: 20px;
+  }
+
+  table {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  pre {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+
+  mat-chip.get { background-color: #61affe; color: white; }
+  mat-chip.post { background-color: #49cc90; color: white; }
+  mat-chip.put { background-color: #fca130; color: white; }
+  mat-chip.delete { background-color: #f93e3e; color: white; }
+  mat-chip.patch { background-color: #50e3c2; color: white; }

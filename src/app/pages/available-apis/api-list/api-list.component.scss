@@ -1,0 +1,37 @@
+.container {
+    padding: 20px;
+  }
+  
+  .endpoint-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .endpoint-card {
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .endpoint-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .error-message {
+    color: red;
+    padding: 20px;
+    text-align: center;
+  }
+
+  mat-chip.get { background-color: #61affe; color: white; }
+  mat-chip.post { background-color: #49cc90; color: white; }
+  mat-chip.put { background-color: #fca130; color: white; }
+  mat-chip.delete { background-color: #f93e3e; color: white; }
+  mat-chip.patch { background-color: #50e3c2; color: white; }

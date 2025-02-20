@@ -6,11 +6,20 @@ import { AvailableApisComponent } from './available-apis.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ApiListComponent } from './api-list/api-list.component';
+import { ApiDetailComponent } from './api-detail/api-detail.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
   declarations: [
-    AvailableApisComponent
+    AvailableApisComponent,
+    ApiListComponent,
+    ApiDetailComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +27,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     // HttpClientModule,
     // BrowserAnimationsModule,
     MatTableModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatChipsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatExpansionModule,
+    // MatExpansionModule,
   ]
 })
 export class AvailableApisModule { }
