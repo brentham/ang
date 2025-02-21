@@ -67,6 +67,30 @@ export class ApiDetailComponent implements OnInit {
     this.initializeEndpoint();
   }
 
+  // private initializeEndpoint() {
+  //   try {
+  //     const navigation = this.router.getCurrentNavigation();
+  //     if (navigation?.extras.state) {
+  //       this.endpoint = navigation.extras.state['endpoint'];
+  //       this.loading = false;
+  //     } else {
+  //       // Try getting from route params as fallback
+  //       const path = this.route.snapshot.paramMap.get('path');
+  //       const method = this.route.snapshot.paramMap.get('method');
+        
+  //       if (path && method) {
+  //         // Could add service call here to fetch endpoint details
+  //         this.loading = false;
+  //       } else {
+  //         throw new Error('No endpoint data available');
+  //       }
+  //     }
+  //   } catch (err) {
+  //     this.error = 'Failed to load endpoint details';
+  //     this.loading = false;
+  //   }
+  // }
+
   private initializeEndpoint() {
     try {
       const navigation = this.router.getCurrentNavigation();
@@ -74,12 +98,11 @@ export class ApiDetailComponent implements OnInit {
         this.endpoint = navigation.extras.state['endpoint'];
         this.loading = false;
       } else {
-        // Try getting from route params as fallback
-        const path = this.route.snapshot.paramMap.get('path');
-        const method = this.route.snapshot.paramMap.get('method');
-        
-        if (path && method) {
-          // Could add service call here to fetch endpoint details
+        // Get the full path from route params
+        const fullPath = this.route.snapshot.paramMap.get('fullPath');
+        if (fullPath) {
+          // Use the full path to fetch endpoint details
+          // Add your service call here if needed
           this.loading = false;
         } else {
           throw new Error('No endpoint data available');

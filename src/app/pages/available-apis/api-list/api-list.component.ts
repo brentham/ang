@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../services/api.service';
 import { ApiEndpoint } from '../../../interfaces/api';
 import { Observable, catchError, map, of, startWith } from 'rxjs';
@@ -25,7 +25,8 @@ export class ApiListComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -60,23 +61,37 @@ export class ApiListComponent implements OnInit {
   //   });
   // }
 
-  showEndpointDetails(endpoint: ApiEndpoint) {
-    // Clean the path
-    let path = endpoint.path;
+  // showEndpointDetails(endpoint: ApiEndpoint) {
+  //   // Clean the path
+  //   let path = endpoint.path;
     
-    // Remove leading slash if present
-    if (path.startsWith('/')) {
-      path = path.slice(1);
-    }
+  //   // Remove leading slash if present
+  //   if (path.startsWith('/')) {
+  //     path = path.slice(1);
+  //   }
 
-    // Navigate using route segments
+  //   // Navigate using route segments
+  //   const segments = ['api-details', ...path.split('/')];
+    
+  //   this.router.navigate(segments, {
+  //     state: { endpoint },
+  //     // Preserve the query params and fragment if any
+  //     preserveFragment: true,
+  //     queryParamsHandling: 'preserve'
+  //   });
+  // }
+
+
+  showEndpointDetails(endpoint: ApiEndpoint) {
+    // Remove leading slash if present
+    const path = endpoint.path.startsWith('/') ? endpoint.path.slice(1) : endpoint.path;
+    
+    // Create the route segments array
     const segments = ['api-details', ...path.split('/')];
     
     this.router.navigate(segments, {
       state: { endpoint },
-      // Preserve the query params and fragment if any
-      preserveFragment: true,
-      queryParamsHandling: 'preserve'
+      relativeTo: this.route // Add this if you want relative navigation
     });
   }
 }
