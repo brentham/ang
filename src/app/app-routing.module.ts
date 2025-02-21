@@ -7,7 +7,8 @@ const routes: Routes = [
   },
   { 
     path: 'users', loadChildren: () => import('./pages/users/users.module').then(m => m.UsersModule) 
-  }
+  },
+  { path: 'move-vm', loadChildren: () => import('./pages/move-vm/move-vm.module').then(m => m.MoveVmModule) }
 ];
 
 @NgModule({

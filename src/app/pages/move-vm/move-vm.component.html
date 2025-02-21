@@ -1,0 +1,32 @@
+<!-- move-vm.component.html -->
+<mat-card class="move-vm-card">
+    <mat-card-header>
+      <mat-card-title>Move Virtual Machine</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <form [formGroup]="moveVmForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>VM ID</mat-label>
+          <input matInput formControlName="vmId" placeholder="Enter VM ID">
+          <mat-error *ngIf="moveVmForm.get('vmId')?.hasError('required')">
+            VM ID is required
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Target Location</mat-label>
+          <input matInput formControlName="targetLocation" placeholder="Enter target location">
+          <mat-error *ngIf="moveVmForm.get('targetLocation')?.hasError('required')">
+            Target location is required
+          </mat-error>
+        </mat-form-field>
+  
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!moveVmForm.valid || isLoading">
+            Move VM
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
