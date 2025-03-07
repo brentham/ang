@@ -1,4 +1,3 @@
-// src/app/interfaces/openapi.interface.ts
 export interface OpenAPISpec {
     paths: {
       [path: string]: PathItem;
@@ -9,14 +8,14 @@ export interface OpenAPISpec {
     [method: string]: OperationObject;
   }
   
-  export interface OperationObject {
-    summary?: string;
-    description?: string;
-    parameters?: ParameterObject[];
-    responses?: {
-      [statusCode: string]: ResponseObject;
-    };
-  }
+  // export interface OperationObject {
+  //   summary?: string;
+  //   description?: string;
+  //   parameters?: ParameterObject[];
+  //   responses?: {
+  //     [statusCode: string]: ResponseObject;
+  //   };
+  // }
   
   export interface ParameterObject {
     name: string;
@@ -43,27 +42,6 @@ export interface OpenAPISpec {
     items?: SchemaObject;
     required?: string[];
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // src/app/interfaces/api.interface.ts
 export interface ApiEndpoint {
     path: string;
     name?: string;
@@ -71,6 +49,7 @@ export interface ApiEndpoint {
     description?: string;
     parameters?: ApiParameter[];
     responses?: ApiResponse[];
+    requestBody?: any; 
 }
 
 export interface ApiParameter {
@@ -84,4 +63,15 @@ export interface ApiResponse {
     status: number;
     description: string;
     schema?: any;
+}
+
+export interface OperationObject {
+  summary?: string;
+  description?: string;
+  parameters?: any[];
+  responses?: Record<string, any>;
+  requestBody?: {
+    required?: boolean;
+    content?: Record<string, any>;
+  };
 }
