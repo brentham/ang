@@ -8,7 +8,8 @@ const routes: Routes = [
   { 
     path: 'users', loadChildren: () => import('./pages/users/users.module').then(m => m.UsersModule) 
   },
-  { path: 'move-vm', loadChildren: () => import('./pages/move-vm/move-vm.module').then(m => m.MoveVmModule) }
+  { path: 'move-vm', loadChildren: () => import('./pages/move-vm/move-vm.module').then(m => m.MoveVmModule) },
+  { path: 'api-explorer', loadChildren: () => import('./pages/api-explorer/api-explorer.module').then(m => m.ApiExplorerModule) }
 ];
 
 @NgModule({
